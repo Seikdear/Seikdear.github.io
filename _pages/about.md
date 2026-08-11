@@ -7,8 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-
-
 I am a third-year PhD student in Economics at Binghamton University (SUNY).
 
 Originally from Cumilla, Bangladesh, I moved to Binghamton three years ago to study for a Ph.D. in  Economics at the State University of New York at Binghamton.  After completing my undergraduate and master's degrees in Economics at the University of Dhaka, I joined as a lecturer at United International University.  After working 2.5 years as a lecturer, I joined the Monetary Policy Department of Bangladesh Bank (the Central Bank of Bangladesh).
