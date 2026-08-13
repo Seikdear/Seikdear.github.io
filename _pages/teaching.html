@@ -7,13 +7,13 @@ author_profile: true
 
 {% include base_path %}
 
-<h2 id="instructor" class="archive__subtitle">Instructor</h2>
+<h2 id="instructor" class="archive__subtitle style="font-weight: bold;">Instructor</h2>
 {% assign instructor_courses = site.teaching | where: "role", "Instructor" %}
 {% for post in instructor_courses reversed %}
   {% include archive-single.html %}
 {% endfor %}
 
-<h2 id="teaching-assistant" class="archive__subtitle">Teaching Assistant</h2>
+<h2 id="teaching-assistant" class="archive__subtitle style="font-weight: bold;">Teaching Assistant</h2>
 {% assign ta_courses = site.teaching | where: "role", "Teaching Assistant" %}
 {% for post in ta_courses reversed %}
   {% include archive-single.html %}
