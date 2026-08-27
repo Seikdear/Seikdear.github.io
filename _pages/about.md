@@ -16,6 +16,7 @@ My primary field of research is stochastic frontier analysis, productivity estim
 A sports lover, I enjoy playing cricket and football.  I still have a passion for travel and hope to visit some places in upstate this year.
 
 
-You can reach me at sseikdear [at] binghamton [dot] edu.
+<span style="color: #0969da; font-size: 0.85em;">You can reach me at sseikdear [at] binghamton [dot] edu.</span>
+
 ---
 
