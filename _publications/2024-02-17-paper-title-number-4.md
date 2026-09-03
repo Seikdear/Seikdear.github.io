@@ -6,8 +6,10 @@ permalink: /publication/2024-02-17-paper-title-number-4
 excerpt: 'This paper is about fixing template issue #693.'
 date: 2024-02-17
 venue: 'GitHub Journal of Bugs'
-field: 'Productivity Estimation'
-method: 'Stochastic Frontier Analysis'
+field:
+  - 'Productivity Estimation'
+method:
+  - 'Stochastic Frontier Analysis'
 status: 'Under Review'
 paperurl: 'https://academicpages.github.io/files/paper3.pdf'
 ssrn: 'https://ssrn.com/abstract=XXXXXXX'

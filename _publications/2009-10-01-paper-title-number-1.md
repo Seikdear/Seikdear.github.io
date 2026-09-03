@@ -6,9 +6,15 @@ permalink: /publication/2009-10-01-paper-title-number-1
 excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
 date: 2009-10-01
 venue: 'Journal 1'
-field: 'Applied Econometrics'
-method: 'Panel Data'
+field:
+  - 'Applied Econometrics'
+  - 'Labor Economics'
+method:
+  - 'Panel Data'
+  - 'Difference-in-Differences'
 status: 'Published'
+coauthors:
+  - 'Coauthor Name'
 slidesurl: 'https://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://academicpages.github.io/files/paper1.pdf'
 ssrn: 'https://ssrn.com/abstract=XXXXXXX'

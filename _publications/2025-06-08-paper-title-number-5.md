@@ -6,9 +6,13 @@ permalink: /publication/2024-02-17-paper-title-number-4
 excerpt: 'This paper is about a famous math equation, $$E=mc^2$$'
 date: 2024-02-17
 venue: 'GitHub Journal of Bugs'
-field: 'Macroeconomics'
-method: 'Time Series'
-status: 'Working Paper'
+field:
+  - 'Macroeconomics'
+method:
+  - 'Time Series'
+status: 'Work in Progress'
+coauthors:
+  - 'Coauthor Name'
 paperurl: 'https://academicpages.github.io/files/paper3.pdf'
 ssrn: 'https://ssrn.com/abstract=XXXXXXX'
 citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'

@@ -1,0 +1,52 @@
+{% assign pub = include.pub %}
+{% capture tag_slugs %}{% if pub.field %}{% for f in pub.field %}{{ f | slugify }} {% endfor %}{% endif %}{% if pub.method %}{% for m in pub.method %}{{ m | slugify }} {% endfor %}{% endif %}{% endcapture %}
+
+<div class="pub-card" data-tags="{{ tag_slugs | strip }}">
+  <div class="pub-card__header">
+    <h3 class="pub-card__title"><a href="{{ base_path }}{{ pub.permalink }}">{{ pub.title }}</a></h3>
+    {% if pub.status %}
+      <span class="pub-badge pub-badge--{{ pub.status | slugify }}">{{ pub.status }}</span>
+    {% endif %}
+  </div>
+
+  {% if pub.coauthors %}
+    <p class="pub-card__coauthors">with {{ pub.coauthors | join: ", " }}</p>
+  {% endif %}
+
+  {% if pub.venue %}
+    <p class="pub-card__venue">{{ pub.venue }}{% if pub.date %}, {{ pub.date | date: "%Y" }}{% endif %}</p>
+  {% endif %}
+
+  {% if pub.excerpt %}
+    {% assign abstract_id = pub.permalink | slugify | append: "-abstract" %}
+    <button type="button" class="pub-abstract-toggle" aria-controls="{{ abstract_id }}">Show abstract</button>
+    <div class="pub-abstract-body" id="{{ abstract_id }}" hidden>
+      <p>{{ pub.excerpt }}</p>
+    </div>
+  {% endif %}
+
+  {% if pub.field %}
+    <div class="pub-tags">
+      <span class="pub-tags__label">Fields</span>
+      {% for f in pub.field %}
+        <span class="pub-tag" data-slug="{{ f | slugify }}">{{ f }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if pub.method %}
+    <div class="pub-tags">
+      <span class="pub-tags__label">Methods</span>
+      {% for m in pub.method %}
+        <span class="pub-tag" data-slug="{{ m | slugify }}">{{ m }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if pub.ssrn or pub.paperurl %}
+    <div class="pub-card__links">
+      {% if pub.ssrn %}<a href="{{ pub.ssrn }}">SSRN &rarr;</a>{% endif %}
+      {% if pub.paperurl %}<a href="{{ pub.paperurl }}">PDF &rarr;</a>{% endif %}
+    </div>
+  {% endif %}
+</div>
