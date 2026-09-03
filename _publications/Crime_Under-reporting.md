@@ -17,7 +17,7 @@ mainly by diﬀerences in police presence rather than educational attainment. Th
 that relying solely on recorded crime can substantially misrepresent underlying public-safety needs.
 By explicitly accounting for reporting frictions and spatial interactions, the proposed framework provides a decision-support tool for improving policing strategies, targeting crime-prevention programs,
 allocating administrative resources, and coordinating interventions across neighboring jurisdictions."
-date: ''
+date: '2026-08-30'
 venue: ''
 field:
   - 'Applied Econometrics'
