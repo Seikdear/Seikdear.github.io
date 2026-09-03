@@ -14,7 +14,7 @@ method:
   - 'Cointegration'
 status: 'Published'
 coauthors:
-  - 'Mobasshir Anjum, Imtiaz Ahmed, Mahmudul Hasan,'
+  - 'Mobasshir Anjum, Imtiaz Ahmed, Mahmudul Hasan'
 slidesurl: ''
 paperurl: 'https://jnu.ac.bd/journal/assets/pdf/4_1_487.pdf'
 #ssrn: ''
