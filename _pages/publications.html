@@ -154,9 +154,14 @@ author_profile: true
   <button type="button" id="pub-filter-clear">clear</button>
 </div>
 
-{% assign published    = site.publications | where_exp: "p", "p.status == 'Published'" | sort: "date" | reverse %}
-{% assign working_pubs = site.publications | where_exp: "p", "p.status == 'Working Paper' or p.status == 'Under Review' or p.status == 'Revise and Resubmit'" | sort: "date" | reverse %}
-{% assign wip_pubs      = site.publications | where_exp: "p", "p.status == 'Work in Progress'" | sort: "date" | reverse %}
+{% assign published = site.publications | where_exp: "p", "p.status == 'Published'" | sort: "date" | reverse %}
+
+{% assign wp_a = site.publications | where_exp: "p", "p.status == 'Working Paper'" %}
+{% assign wp_b = site.publications | where_exp: "p", "p.status == 'Under Review'" %}
+{% assign wp_c = site.publications | where_exp: "p", "p.status == 'Revise and Resubmit'" %}
+{% assign working_pubs = wp_a | concat: wp_b | concat: wp_c | sort: "date" | reverse %}
+
+{% assign wip_pubs = site.publications | where_exp: "p", "p.status == 'Work in Progress'" | sort: "date" | reverse %}
 
 {% if published.size > 0 %}
 <div class="pub-section">
