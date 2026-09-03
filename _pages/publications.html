@@ -7,6 +7,242 @@ author_profile: true
 
 {% include base_path %}
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+<style>
+  .page__title {
+    display: none;
+  }
+  .pub-section + .pub-section {
+    margin-top: 2.2em;
+  }
+  .pub-section__title {
+    margin-bottom: 0.8em;
+  }
+  .pub-card {
+    position: relative;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 1.25em 1.4em;
+    margin-bottom: 1.1em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .pub-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .pub-card__title {
+    margin: 0;
+    font-size: 1.05em;
+  }
+  .pub-card__title a {
+    text-decoration: none;
+  }
+  .pub-card__coauthors,
+  .pub-card__venue {
+    margin: 0.25em 0 0;
+    font-size: 0.88em;
+    color: #666;
+  }
+  .pub-card__venue {
+    font-style: italic;
+  }
+  .pub-badge {
+    flex-shrink: 0;
+    display: inline-block;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 0.25em 0.75em;
+    border-radius: 1em;
+    white-space: nowrap;
+    background: #eee;
+    color: #444;
+  }
+  .pub-badge--working-paper       { background: #fbe2e6; color: #8a3947; }
+  .pub-badge--under-review        { background: #dbe9fb; color: #1a4a8a; }
+  .pub-badge--revise-and-resubmit { background: #dcf2df; color: #1f7a3d; }
+  .pub-badge--published           { background: #fbeccb; color: #8a5a00; }
+  .pub-badge--work-in-progress    { background: #eee; color: #555; }
+
+  .pub-abstract-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 0.6em;
+    font-size: 0.85em;
+    color: #0969da;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .pub-abstract-body {
+    margin: 0.6em 0 0;
+    padding-left: 0.9em;
+    border-left: 2px solid #e3e3e3;
+    font-size: 0.9em;
+    color: #444;
+  }
+  .pub-abstract-body p {
+    margin: 0;
+  }
+  .pub-abstract-body[hidden] {
+    display: none;
+  }
+
+  .pub-tags {
+    margin-top: 0.7em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4em;
+  }
+  .pub-tags__label {
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #999;
+    margin-right: 0.3em;
+  }
+  .pub-tag {
+    font-size: 0.8em;
+    background: #f0f0f0;
+    color: #444;
+    border-radius: 1em;
+    padding: 0.2em 0.7em;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .pub-tag:hover {
+    border-color: #ccc;
+  }
+  .pub-tag.is-active {
+    background: #0969da;
+    color: #fff;
+  }
+
+  .pub-card__links {
+    margin-top: 0.7em;
+  }
+  .pub-card__links a {
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-right: 1.2em;
+  }
+
+  .pub-filter-status {
+    margin-bottom: 1.2em;
+    font-size: 0.9em;
+    color: #555;
+  }
+  .pub-filter-status button {
+    background: none;
+    border: none;
+    color: #0969da;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+  }
+  .pub-filter-status[hidden] {
+    display: none;
+  }
+</style>
+
+<div class="pub-filter-status" id="pub-filter-status" hidden>
+  Showing: <strong id="pub-filter-label"></strong>
+  <button type="button" id="pub-filter-clear">clear</button>
+</div>
+
+{% assign published    = site.publications | where_exp: "p", "p.status == 'Published'" | sort: "date" | reverse %}
+{% assign working_pubs = site.publications | where_exp: "p", "p.status == 'Working Paper' or p.status == 'Under Review' or p.status == 'Revise and Resubmit'" | sort: "date" | reverse %}
+{% assign wip_pubs      = site.publications | where_exp: "p", "p.status == 'Work in Progress'" | sort: "date" | reverse %}
+
+{% if published.size > 0 %}
+<div class="pub-section">
+  <h2 class="pub-section__title">Publications</h2>
+  {% for pub in published %}{% include publications/pub-card.html pub=pub %}{% endfor %}
+</div>
 {% endif %}
+
+{% if working_pubs.size > 0 %}
+<div class="pub-section">
+  <h2 class="pub-section__title">Working Papers</h2>
+  {% for pub in working_pubs %}{% include publications/pub-card.html pub=pub %}{% endfor %}
+</div>
+{% endif %}
+
+{% if wip_pubs.size > 0 %}
+<div class="pub-section">
+  <h2 class="pub-section__title">Work in Progress</h2>
+  {% for pub in wip_pubs %}{% include publications/pub-card.html pub=pub %}{% endfor %}
+</div>
+{% endif %}
+
+{% if site.author.googlescholar %}
+  <div class="wordwrap" style="margin-top: 2em;">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var activeTag = null;
+  var statusBar = document.getElementById('pub-filter-status');
+  var statusLabel = document.getElementById('pub-filter-label');
+  var clearBtn = document.getElementById('pub-filter-clear');
+
+  function applyFilter() {
+    document.querySelectorAll('.pub-section').forEach(function (section) {
+      var anyVisible = false;
+      section.querySelectorAll('.pub-card').forEach(function (card) {
+        var tags = (card.dataset.tags || '').split(' ');
+        var show = !activeTag || tags.indexOf(activeTag) !== -1;
+        card.style.display = show ? '' : 'none';
+        if (show) anyVisible = true;
+      });
+      section.style.display = anyVisible ? '' : 'none';
+    });
+  }
+
+  document.querySelectorAll('.pub-tag').forEach(function (tagEl) {
+    tagEl.addEventListener('click', function () {
+      var slug = tagEl.dataset.slug;
+      if (activeTag === slug) {
+        activeTag = null;
+      } else {
+        activeTag = slug;
+      }
+      document.querySelectorAll('.pub-tag').forEach(function (t) {
+        t.classList.toggle('is-active', t.dataset.slug === activeTag);
+      });
+      if (activeTag) {
+        statusBar.hidden = false;
+        statusLabel.textContent = tagEl.textContent;
+      } else {
+        statusBar.hidden = true;
+      }
+      applyFilter();
+    });
+  });
+
+  clearBtn.addEventListener('click', function () {
+    activeTag = null;
+    document.querySelectorAll('.pub-tag').forEach(function (t) { t.classList.remove('is-active'); });
+    statusBar.hidden = true;
+    applyFilter();
+  });
+
+  document.querySelectorAll('.pub-abstract-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var body = document.getElementById(btn.getAttribute('aria-controls'));
+      var isHidden = body.hasAttribute('hidden');
+      if (isHidden) {
+        body.removeAttribute('hidden');
+        btn.textContent = 'Hide abstract';
+      } else {
+        body.setAttribute('hidden', '');
+        btn.textContent = 'Show abstract';
+      }
+    });
+  });
+});
+</script>
