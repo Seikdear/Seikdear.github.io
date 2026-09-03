@@ -13,8 +13,7 @@ method:
   - 'ARDL'
   - 'Error Correction Method'
 status: 'Published'
-coauthors:
-  - 'Imtiaz Ahmed, Mobasshir Anjum, Mahmudul Hasan'
+
 slidesurl: ''
 paperurl: 'https://d1wqtxts1xzle7.cloudfront.net/131694496/43939-libre.pdf?1770682838=&response-content-disposition=inline%3B+filename%3DExamining_the_Nexus_between_External_Deb.pdf&Expires=1788457784&Signature=OO-BPTO-cx~FlXbwM2we3pKOhRIcgpSrsI9XQDbOFLPE4FrSIwERJeGCGJpsYa01FaVefNDAqW~Mli9c-5MeIGtl9ENeBW4xUWsWxLWEI0zIRc0ZRzyrBaL~khLCpsx-tPkEZNw4VjlJ6qdSFgpBaFbO4mP~LtWxlNK7z-XSnGfK0Oz5dgcgXVQDWRZgGgdan0VrZ8~jwu0ahmLXMRz7~nb5I6IpGVdu02D9QbRZary862ihVaE6PFJH-vPkTdy952BvGIzPI80kNpm1c~JZgCIuh8KJaWIQe86GFuFHmEpjlDp0F0TTQh0rDZeZJwX9L~IpcXmVxJkSV81kQ7W9bQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA'
 #ssrn: ''

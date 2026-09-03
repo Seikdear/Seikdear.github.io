@@ -26,6 +26,8 @@ method:
   - 'Stochastic Frontier'
   - 'Semiparametric Estimation'
 status: 'Under Review'
+coauthors:
+  - 'Bijaya Kalaketi, Subal C. Kumbhakar'
 slidesurl: ''
 paperurl: ''
 ssrn: ''
