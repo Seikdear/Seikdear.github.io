@@ -2,7 +2,7 @@
 title: "Crime Under-Reporting, Spatial Spillovers, and Local Housing Markets: Evidence from U.S. Counties"
 collection: publications
 category: manuscripts
-permalink: /publication/Crime Under-reporting
+permalink: /publication/Crime_Under-reporting
 excerpt: "Ofcial crime statistics systematically understate the true incidence of criminal activity, a measurement problem with particular consequences for how researchers and policymakers interpret spatial variation in crime, its relationship to local housing markets, and disparities between urban and
 rural areas. We develop a semiparametric spatial stochastic frontier model that recovers latent crime
 incidence from reported crime data while jointly accounting for under-reporting and spatial spillovers
